@@ -10,12 +10,12 @@ import ru.netology.springservice.exception.UnauthorizedUser;
 @RestControllerAdvice
 public class ExceptionHandlerAdvice {
     @ExceptionHandler(InvalidCredentials.class)
-    public ResponseEntity<String> getAuthoritiesHandler(InvalidCredentials e){
+    private ResponseEntity<String> getAuthoritiesHandler(InvalidCredentials e){
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(UnauthorizedUser.class)
-    public ResponseEntity<String> userAuthoritiesHandler(UnauthorizedUser e){
+    private ResponseEntity<String> userAuthoritiesHandler(UnauthorizedUser e){
         return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
     }
 }
